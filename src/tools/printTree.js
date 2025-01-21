@@ -212,9 +212,18 @@ let centerX = canvas.width /2
 
 //renders
 function senterDrow(index){
+    
+
     centerX = canvas.width / 2;
     ctx.beginPath();
-    ctx.lineWidth = index;
+    
+    if(index > 100){
+        ctx.lineWidth = 100;
+    }
+    else{
+        ctx.lineWidth = index;
+    }
+
     // main Branch の 大木の長さを比率で管理している
     ctx.moveTo(centerX, canvas.height * 0.05);
     ctx.lineTo(centerX, canvas.height * 0.93);
@@ -225,26 +234,35 @@ function senterDrow(index){
 }
 
 const setTree = () => {
-    return (-1 + (getRandomInt(0,1) * 2)) * getRandomInt(centerX * 0.4,centerX * 0.85);
+    return (-1 + (getRandomInt(0,2) * 2)) * getRandomInt(centerX * 0.4,centerX * 0.85);
 } 
+// console.log(setTree());
+// console.log(getRandomInt(0,2));
 
+const tree_mix_high = canvas.height * Mix_Y
+const tree_max_high = canvas.height * Max_Y
+let tree_high = 0
 
-
-function settingTree(high){
-    centerX = canvas.width / 2;
+function settingTree(count){
+    
+    for(let i = 0; i < count; i++){
+        centerX = canvas.width / 2;
         
-    ctx.beginPath();
-    ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.lineWidth = 3;
+        tree_high = getRandomInt(tree_mix_high, tree_max_high)
+        ctx.moveTo(centerX + getRandomInt(-3,3) * 3, tree_high);
+        ctx.lineTo(centerX + setTree(), tree_high - (getRandomInt(0,10) * 20));
+        
+        
+        ctx.closePath();
+        ctx.stroke();
+    }
     
-    ctx.moveTo(centerX, high);
-    ctx.lineTo(setTree(), high);
     
-    
-    ctx.closePath();
-    ctx.stroke();
 }
 
-settingTree(353);
+
 
 /* sennter
 tree
@@ -257,8 +275,8 @@ window.addEventListener('DOMContentLoaded', ()=> {
     SettingMaxSizeDisplay();
     
     //GET Date    
-    senterDrow(treeManager["main"]["commit"]);
-    
+    // senterDrow(treeManager["main"]["commit"]);
+    settingTree(25);
 
 });
 
