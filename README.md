@@ -1,4 +1,27 @@
+# OverView
+
+**programing x houseplants**  
+Github API get specified　repository.  
+Expressing the maturity level of a project using a tree.  
+
+
+# Construction
+1. Github API Get specified　repository Date  
+
+Get Datas  
+ - Tree
+ - Commit
+ - PullRequest
+ - Discossion
+
+
+2. Print tree
+DateDate
+
+
+
 # 概要
+
 **プログラミング × 観葉植物**
 githubと連携して特定のリポジトリの  
 コードからどんなプロジェクトかを  
