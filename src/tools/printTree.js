@@ -152,7 +152,8 @@ PullrequestManager = {
         "end_pos":[343,234],
         "commit":3
     },
-    "fix: bugfix/openapi/header_params_model ":{
+    10:{
+        "title":"fix: bugfix/openapi/header_params_model ",
         "end_pos":[343,234],
         "commit":9
     }
@@ -209,11 +210,9 @@ const onRepaintCanvas = function() {
 };
 
 let centerX = canvas.width /2
-
+let TreeBow = []
 //renders
 function senterDrow(index){
-    
-
     centerX = canvas.width / 2;
     ctx.beginPath();
     
@@ -242,21 +241,27 @@ const setTree = () => {
 const tree_mix_high = canvas.height * Mix_Y
 const tree_max_high = canvas.height * Max_Y
 let tree_high = 0
-
+start_pos = [0,0]
+end_pos = [0,0]
 function settingTree(count){
-    
     for(let i = 0; i < count; i++){
         centerX = canvas.width / 2;
         
         ctx.beginPath();
         ctx.lineWidth = 3;
-        tree_high = getRandomInt(tree_mix_high, tree_max_high)
-        ctx.moveTo(centerX + getRandomInt(-10,10) * 3, tree_high);
-        ctx.lineTo(centerX + setTree(), tree_high - (getRandomInt(0,10) * 20));
+        tree_high = getRandomInt(tree_mix_high, tree_max_high);
+        
+        start_pos = [centerX + getRandomInt(-10,10) * 3, tree_high];
+        end_pos = [centerX + setTree(), tree_high - (getRandomInt(0,10) * 20)];
+
+        ctx.moveTo(start_pos[0], start_pos[1]);
+        ctx.lineTo(end_pos[0], end_pos[1]);
         
         
         ctx.closePath();
         ctx.stroke();
+
+
     }
     
     
