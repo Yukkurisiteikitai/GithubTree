@@ -251,7 +251,7 @@ function settingTree(count){
         ctx.beginPath();
         ctx.lineWidth = 3;
         tree_high = getRandomInt(tree_mix_high, tree_max_high)
-        ctx.moveTo(centerX + getRandomInt(-3,3) * 3, tree_high);
+        ctx.moveTo(centerX + getRandomInt(-10,10) * 3, tree_high);
         ctx.lineTo(centerX + setTree(), tree_high - (getRandomInt(0,10) * 20));
         
         
@@ -275,8 +275,8 @@ window.addEventListener('DOMContentLoaded', ()=> {
     SettingMaxSizeDisplay();
     
     //GET Date    
-    // senterDrow(treeManager["main"]["commit"]);
-    settingTree(25);
+    senterDrow(treeManager["main"]["commit"]);
+    settingTree(402);
 
 });
 
