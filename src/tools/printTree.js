@@ -35,27 +35,14 @@ function getRandomInt(min, max) {
 }
 
 
-//renders
-function senterDrow(index){
-    ctx.beginPath();
-    ctx.lineWidth = index;
-    ctx.moveTo(750, 0);
-    ctx.lineTo(750, 876);
-    ctx.closePath();
-    ctx.stroke();
-}
-senterDrow(103);
-
-
+//Display
 function SettingMaxSizeDisplay(){
-
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
     console.log("LoadOK");
-    onRepaint();
 }
 
-const onRepaint = function() {
+const onRepaintCanvas = function() {
     console.log('repaint');
 
     const canvas =  document.getElementById('drow');
@@ -68,24 +55,47 @@ const onRepaint = function() {
     context.fillRect(10, 10, canvas.width-20, canvas.height-20);
 };
 
-window.addEventListener('DOMContentLoaded', SettingMaxSizeDisplay);
-window.addEventListener('resize', SettingMaxSizeDisplay);
+let centerX = canvas.width /2
+
+//renders
+function senterDrow(index){
+    centerX = canvas.width / 2;
+    ctx.beginPath();
+    ctx.lineWidth = index;
+    ctx.moveTo(centerX, 0);
+    ctx.lineTo(centerX, 876);
+    ctx.closePath();
+    ctx.stroke();
+    console.log("SetDrow");
+    console.log(`index:${index}\ncenterX:${centerX}\n`)
+}
 
 
 
 function settingTree(high){
+    centerX = canvas.width / 2;
     ctx.beginPath();
-    ctx.lineWidth = index;
-    ctx.moveTo(750, 0);
-    ctx.lineTo(750, 876);
+    ctx.lineWidth = 3;
+    ctx.moveTo(centerX, 0);
+    ctx.lineTo(centerX, 876);
     ctx.closePath();
     ctx.stroke();
 }
 
 
+
 /* sennter
-tree 
+tree
+
  */
 
 //Drow Test
 
+window.addEventListener('DOMContentLoaded', ()=> {
+    SettingMaxSizeDisplay();
+    
+    //GET Date    
+    senterDrow(3);
+
+});
+window.addEventListener('resize', SettingMaxSizeDisplay);
