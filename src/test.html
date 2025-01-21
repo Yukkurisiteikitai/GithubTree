@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Drawing</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="treeCanvas" width="400" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById('treeCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function drawTree(x, y, trunkWidth, trunkHeight, foliageRadius) {
+            // Draw trunk
+            ctx.fillStyle = '#8B4513'; // Brown color
+            ctx.fillRect(x - trunkWidth / 2, y - trunkHeight, trunkWidth, trunkHeight);
+
+            // Draw foliage
+            ctx.beginPath();
+            ctx.arc(x, y - trunkHeight, foliageRadius, 0, Math.PI * 2);
+            ctx.fillStyle = '#228B22'; // Green color
+            ctx.fill();
+        }
+
+        // Clear canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw multiple trees
+        drawTree(200, 300, 20, 100, 60); // Center tree
+        drawTree(100, 350, 15, 80, 50); // Left tree
+        drawTree(300, 350, 15, 80, 50); // Right tree
+    </script>
+</body>
+</html>
