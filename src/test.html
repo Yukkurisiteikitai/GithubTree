@@ -1,42 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tree Drawing</title>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <style>
-        canvas {
-            border: 1px solid black;
-            display: block;
-            margin: 20px auto;
-        }
+html, body, #canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
     </style>
-</head>
-<body>
-    <canvas id="treeCanvas" width="400" height="400"></canvas>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
     <script>
-        const canvas = document.getElementById('treeCanvas');
-        const ctx = canvas.getContext('2d');
 
-        function drawTree(x, y, trunkWidth, trunkHeight, foliageRadius) {
-            // Draw trunk
-            ctx.fillStyle = '#8B4513'; // Brown color
-            ctx.fillRect(x - trunkWidth / 2, y - trunkHeight, trunkWidth, trunkHeight);
+        const onRepaint = function() {
+            console.log('repaint');
 
-            // Draw foliage
-            ctx.beginPath();
-            ctx.arc(x, y - trunkHeight, foliageRadius, 0, Math.PI * 2);
-            ctx.fillStyle = '#228B22'; // Green color
-            ctx.fill();
-        }
+            const canvas =  document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+            
+            context.fillStyle = 'red';
+            context.fillRect(0, 0, canvas.width, canvas.height);
+            
+            context.fillStyle = 'blue';
+            context.fillRect(10, 10, canvas.width-20, canvas.height-20);
+        };
 
-        // Clear canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const onResize = function() {
+            console.log('resize');
 
-        // Draw multiple trees
-        drawTree(200, 300, 20, 100, 60); // Center tree
-        drawTree(100, 350, 15, 80, 50); // Left tree
-        drawTree(300, 350, 15, 80, 50); // Right tree
+            const canvas =  document.getElementById('canvas');
+            console.log(canvas.height, canvas.clientHeight, window.innerHeight);
+
+            canvas.width = canvas.clientWidth;
+            canvas.height = canvas.clientHeight;
+
+            onRepaint();
+        };
+
+        window.addEventListener('DOMContentLoaded', onResize);
+        window.addEventListener('resize', onResize);
     </script>
-</body>
+  </body>
 </html>
