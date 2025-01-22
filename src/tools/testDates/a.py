@@ -7,14 +7,14 @@ def rand(mix,max):
     
 
 def a():
-    with open("a.csv","r",encoding="utf-8")as f:
+    with open("ae.csv","r",encoding="utf-8")as f:
         date = f.readlines()
     # print(date)
-    for i in date:
+    for i in range(len(date)):
         # print(i)
-        print('{"titile":"'+ i.replace('\n','') +',"end_pos":[343,234],"commit:'+ str(rand(3,20)) +'},')
+        # print('{"titile":"'+ i.replace('\n','') +',"end_pos":[343,234],"commit:'+ str(rand(3,20)) +'},')
         # print(f'{"title":"{i.replace('\n','')}"}')
-        # print('"'+ i.replace('\n','') +'":{\n    "end_pos":[343,234],\n    "commit":'+ str(rand(3,20)) +'\n},')
+        print(str(i) + ':{\n"title":"'+ date[i].replace('\n','') + '",\n    "end_pos":[343,234],\n    "commit":'+ str(rand(3,20)) +'\n},')
 
 temp = ""
 def ce(path:str,count:int,lend:int):
@@ -29,5 +29,5 @@ def ce(path:str,count:int,lend:int):
 
     
     
-
-ce(path="b.csv",count=34,lend=3)
+a()
+# ce(path="b.csv",count=34,lend=3)
