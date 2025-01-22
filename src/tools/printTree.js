@@ -56,111 +56,135 @@ treeManager = {
 }
 
 PullrequestManager = {
-    "Updated README.md file with other missing components highlighted.":{
-        "end_pos":[343,234],
-        "commit":6
-    },
-    "bugfix: updated tutorial002_py310.py for tax=0 situation":{
-        "end_pos":[343,234],
-        "commit":18
-    },
-    "🌐 Add Russian translation for docs/ru/docs/advanced/async-tests.md  approved-1 lang-all lang-ru":{
+    0:{
+        "title":"Updated README.md file with other missing components highlighted.",
         "end_pos":[343,234],
         "commit":19
     },
-    "🌐 Add Japanese translation for docs/ja/docs/environment-variables.md  awaiting-review lang-all lang-ja#13226 opened 3 days ago by k94-ishi":{
+    1:{
+        "title":"bugfix: updated tutorial002_py310.py for tax=0 situation",
+        "end_pos":[343,234],
+        "commit":15
+    },
+    2:{
+        "title":"🌐 Add Russian translation for docs/ru/docs/advanced/async-tests.md  approved-1 lang-all lang-ru",
         "end_pos":[343,234],
         "commit":12
     },
-    "✅ Simplify tests for: test_testing_dependencies":{
-        "end_pos":[343,234],
-        "commit":8
-    },
-    "✅ Simplify tests for: test_testing  refactor⬆️ Upgrade python-multipart to >=0.0.18 upgrade#13219 opened 4 days ago by DanielKusyDev":{
-        "end_pos":[343,234],
-        "commit":13
-    },
-    " 2":{
-        "end_pos":[343,234],
-        "commit":12
-    },
-    "✅ Simplify tests for: test_query_params_str_validations":{
-        "end_pos":[343,234],
-        "commit":7
-    },
-    "🌐 Update Portuguese Translation for docs/pt/docs/tutorial/request-forms.md  approved-1 lang-all lang-pt":{
-        "end_pos":[343,234],
-        "commit":13
-    },
-    "test openapi schema output with separate_input_output_schemas=False":{
-        "end_pos":[343,234],
-        "commit":19
-    },
-    "🐛 Fix parameter models with alias ":{
-        "end_pos":[343,234],
-        "commit":12
-    },
-    "🔧 Add Pydantic 2 trove classifier ":{
-        "end_pos":[343,234],
-        "commit":5
-    },
-    "🌐 Add Arabic translation for docs/ar/docs/index.md  awaiting-review lang-all lang-ar":{
+    3:{
+        "title":"🌐 Add Japanese translation for docs/ja/docs/environment-variables.md  awaiting-review lang-all lang-ja#13226 opened 3 days ago by k94-ishi",
         "end_pos":[343,234],
         "commit":20
     },
-    "✅ Simplify tests for request_files":{
+    4:{
+        "title":"✅ Simplify tests for: test_testing_dependencies",
         "end_pos":[343,234],
         "commit":17
     },
-    "update pytest asyncio test added lifespan and update docs ":{
+    5:{
+        "title":"✅ Simplify tests for: test_testing  refactor⬆️ Upgrade python-multipart to >=0.0.18 upgrade#13219 opened 4 days ago by DanielKusyDev",
         "end_pos":[343,234],
-        "commit":14
+        "commit":19
     },
-    "🌐 Add Russian translation for docs/ru/docs/tutorial/bigger-applications.md ":{
+    6:{
+        "title":" 2",
         "end_pos":[343,234],
         "commit":8
     },
-    "approved-1 lang-all lang-ru":{
-        "end_pos":[343,234],
-        "commit":5
-    },
-    "dependencies internal python":{
-        "end_pos":[343,234],
-        "commit":14
-    },
-    "⬆ Update httpx requirement from <0.28.0,>=0.23.0 to >=0.23.0,<0.29.0 ":{
-        "end_pos":[343,234],
-        "commit":10
-    },
-    " dependencies internal python":{
-        "end_pos":[343,234],
-        "commit":11
-    },
-    "Update anyio in requirements-tests.txt ":{
-        "end_pos":[343,234],
-        "commit":13
-    },
-    "• Draft":{
-        "end_pos":[343,234],
-        "commit":12
-    },
-    "⬆️ Bump starlette to allow up to 0.45.0 ":{
-        "end_pos":[343,234],
-        "commit":13
-    },
-    "⬆ Allow httpx 0.28.x, relax pins ":{
+    7:{
+        "title":"✅ Simplify tests for: test_query_params_str_validations",
         "end_pos":[343,234],
         "commit":3
     },
+    8:{
+        "title":"🌐 Update Portuguese Translation for docs/pt/docs/tutorial/request-forms.md  approved-1 lang-all lang-pt",
+        "end_pos":[343,234],
+        "commit":6
+    },
+    9:{
+        "title":"test openapi schema output with separate_input_output_schemas=False",
+        "end_pos":[343,234],
+        "commit":14
+    },
     10:{
+        "title":"🐛 Fix parameter models with alias ",
+        "end_pos":[343,234],
+        "commit":19
+    },
+    11:{
+        "title":"🔧 Add Pydantic 2 trove classifier ",
+        "end_pos":[343,234],
+        "commit":6
+    },
+    12:{
+        "title":"🌐 Add Arabic translation for docs/ar/docs/index.md  awaiting-review lang-all lang-ar",
+        "end_pos":[343,234],
+        "commit":20
+    },
+    13:{
+        "title":"✅ Simplify tests for request_files",
+        "end_pos":[343,234],
+        "commit":11
+    },
+    14:{
+        "title":"update pytest asyncio test added lifespan and update docs ",
+        "end_pos":[343,234],
+        "commit":18
+    },
+    15:{
+        "title":"🌐 Add Russian translation for docs/ru/docs/tutorial/bigger-applications.md ",
+        "end_pos":[343,234],
+        "commit":13
+    },
+    16:{
+        "title":"approved-1 lang-all lang-ru",
+        "end_pos":[343,234],
+        "commit":17
+    },
+    17:{
+        "title":"dependencies internal python",
+        "end_pos":[343,234],
+        "commit":8
+    },
+    18:{
+        "title":"⬆ Update httpx requirement from <0.28.0,>=0.23.0 to >=0.23.0,<0.29.0 ",
+        "end_pos":[343,234],
+        "commit":11
+    },
+    19:{
+        "title":" dependencies internal python",
+        "end_pos":[343,234],
+        "commit":5
+    },
+    20:{
+        "title":"Update anyio in requirements-tests.txt ",
+        "end_pos":[343,234],
+        "commit":3
+    },
+    21:{
+        "title":"• Draft",
+        "end_pos":[343,234],
+        "commit":11
+    },
+    22:{
+        "title":"⬆️ Bump starlette to allow up to 0.45.0 ",
+        "end_pos":[343,234],
+        "commit":11
+    },
+    23:{
+        "title":"⬆ Allow httpx 0.28.x, relax pins ",
+        "end_pos":[343,234],
+        "commit":11
+    },
+    24:{
         "title":"fix: bugfix/openapi/header_params_model ",
         "end_pos":[343,234],
-        "commit":9
+        "commit":14
     }
 }
 
 
-console.log(PullrequestManager["fix: bugfix/openapi/header_params_model "]["end_pos"])
+// console.log(Object.keys(PullrequestManager).length);
 
 //tool
 
@@ -192,7 +216,7 @@ function SettingMaxSizeDisplay(){
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
     console.log(`nowSize\n canvas.height:${canvas.height}\n canvas.width:${canvas.width}`)
-    console.log("LoadOK");
+    console.log("[Scuess]Load-CanvasSize");
 }
 
 
@@ -235,24 +259,29 @@ function senterDrow(index){
 const setTree = () => {
     return (-1 + (getRandomInt(0,2) * 2)) * getRandomInt(centerX * 0.4,centerX * 0.85);
 } 
-// console.log(setTree());
-// console.log(getRandomInt(0,2));
+
+function RandomSetPM(mix,max){
+    return (-1 + (getRandomInt(0,2) * 2));
+} 
 
 const tree_mix_high = canvas.height * Mix_Y
 const tree_max_high = canvas.height * Max_Y
 let tree_high = 0
 start_pos = [0,0]
 end_pos = [0,0]
+
 function settingTree(count){
     for(let i = 0; i < count; i++){
         centerX = canvas.width / 2;
         
         ctx.beginPath();
         ctx.lineWidth = 3;
+        
         tree_high = getRandomInt(tree_mix_high, tree_max_high);
         
         start_pos = [centerX + getRandomInt(-10,10) * 3, tree_high];
         end_pos = [centerX + setTree(), tree_high - (getRandomInt(0,10) * 20)];
+        PullrequestManager[i]["end_pos"] = [end_pos[0],end_pos[1]];
 
         ctx.moveTo(start_pos[0], start_pos[1]);
         ctx.lineTo(end_pos[0], end_pos[1]);
@@ -261,10 +290,30 @@ function settingTree(count){
         ctx.closePath();
         ctx.stroke();
 
+    }
+    
+    console.log(`PullRequestManager`);
+    console.dir(PullrequestManager);
+}
+
+function settingLeef(count,leef_range){
+    for(let i = 0; i < count; i++){
+        centerX = canvas.width / 2;
+        
+        set_pos = [PullrequestManager[i]["end_pos"][0], PullrequestManager[i]["end_pos"][1]]
+        
+        for(let l = 0;l<leef_range;l++){
+            ctx.beginPath();
+            ctx.fillRect((set_pos[0]+ (RandomSetPM() * getRandomInt(2,10))), (set_pos[1] + (RandomSetPM() * getRandomInt(5,10))), 10, 10);
+            ctx.closePath();
+            ctx.stroke();
+        }
+        
 
     }
     
-    
+    console.log(`PullRequestManager`);
+    console.dir(PullrequestManager,10);
 }
 
 
@@ -280,8 +329,12 @@ window.addEventListener('DOMContentLoaded', ()=> {
     SettingMaxSizeDisplay();
     
     //GET Date    
+    const SettingTrees = Object.keys(PullrequestManager).length
+    console.log(`SettingTree:${SettingTrees}`);
+
     senterDrow(treeManager["main"]["commit"]);
-    settingTree(402);
+    settingTree(SettingTrees);
+    settingLeef(SettingTrees,3);
 
 });
 
