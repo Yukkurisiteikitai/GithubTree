@@ -1,0 +1,25 @@
+Updated README.md file with other missing components highlighted.
+bugfix: updated tutorial002_py310.py for tax=0 situation
+🌐 Add Russian translation for docs/ru/docs/advanced/async-tests.md  approved-1 lang-all lang-ru
+🌐 Add Japanese translation for docs/ja/docs/environment-variables.md  awaiting-review lang-all lang-ja#13226 opened 3 days ago by k94-ishi
+✅ Simplify tests for: test_testing_dependencies
+✅ Simplify tests for: test_testing  refactor⬆️ Upgrade python-multipart to >=0.0.18 upgrade#13219 opened 4 days ago by DanielKusyDev
+ 2
+✅ Simplify tests for: test_query_params_str_validations
+🌐 Update Portuguese Translation for docs/pt/docs/tutorial/request-forms.md  approved-1 lang-all lang-pt
+test openapi schema output with separate_input_output_schemas=False
+🐛 Fix parameter models with alias 
+🔧 Add Pydantic 2 trove classifier 
+🌐 Add Arabic translation for docs/ar/docs/index.md  awaiting-review lang-all lang-ar
+✅ Simplify tests for request_files
+update pytest asyncio test added lifespan and update docs 
+🌐 Add Russian translation for docs/ru/docs/tutorial/bigger-applications.md 
+approved-1 lang-all lang-ru
+dependencies internal python
+⬆ Update httpx requirement from <0.28.0,>=0.23.0 to >=0.23.0,<0.29.0 
+ dependencies internal python
+Update anyio in requirements-tests.txt 
+• Draft
+⬆️ Bump starlette to allow up to 0.45.0 
+⬆ Allow httpx 0.28.x, relax pins 
+fix: bugfix/openapi/header_params_model 
