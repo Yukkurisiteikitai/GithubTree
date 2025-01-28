@@ -290,7 +290,7 @@ treeManager = {
 function senterDrow(index){
     centerReset();
 
-    var Branch_temp = document.createElementNS('http://www.w3.org/2000/svg','line');;
+    var Branch_temp = document.createElementNS('http://www.w3.org/2000/svg','line');
     Branch_temp.setAttribute('x1',centerX);
     Branch_temp.setAttribute('y1',centerY * 0.05);
     Branch_temp.setAttribute('x2',centerX);
@@ -304,7 +304,7 @@ function senterDrow(index){
         Branch_temp.setAttribute('stroke-width', index);
     }
     
-    Branch_temp.setAttribute('data-id',`branch${i}`);
+    Branch_temp.setAttribute('data-id',`${i}`);
 
 
     console.log("SetDrow");
@@ -358,7 +358,7 @@ function settingTree(count){
         Branch_temp.setAttribute('y2',end_pos[1]);
         Branch_temp.setAttribute('stroke','brown');
         Branch_temp.setAttribute('stroke-width',3);
-        Branch_temp.setAttribute('data-id',`branch${i}`);
+        Branch_temp.setAttribute('data-id',`${i}`);
 
         svg_canvas.appendChild(Branch_temp);
     }
@@ -418,3 +418,11 @@ window.addEventListener('DOMContentLoaded', ()=> {
 
 
 window.addEventListener('resize', SettingMaxSizeDisplay);
+
+
+//ClickEvents
+svg_canvas.addEventListener("click",(event) => {
+    /* どんなものなのでしょうか? */
+    console.log(event.target.getAttribute("data-id"));
+    console.dir(PullrequestManager[parseInt(event.target.getAttribute("data-id"),10)]);
+});

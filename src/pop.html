@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Card</title>
+</head>
+<body>
+    <p>Open</p>
+  <svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Card Background -->
+    <rect x="6" y="6" width="388" height="188" rx="15" ry="15" fill="#d4b06c" />
+    <rect x="10" y="10" width="380" height="180" rx="15" ry="15" fill="#617256" />
+    
+    
+    <!-- Title -->
+    <text x="20" y="40" font-family="Arial, sans-serif" font-size="20" fill="white">
+      bugfix: updated tutorial002...
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="20" y="65" font-family="Arial, sans-serif" font-size="14" fill="#d4b273">
+      最近の会話
+    </text>
+    
+    <!-- Body Text -->
+    <text x="20" y="90" font-family="Arial, sans-serif" font-size="12" fill="white">
+      I have this annoying situation where I have to
+    </text>
+    <text x="20" y="105" font-family="Arial, sans-serif" font-size="12" fill="white">
+      handle a lot of exceptions with the same handler.
+    </text>
+    <text x="20" y="120" font-family="Arial, sans-serif" font-size="12" fill="white">
+      added an extra argument in the exception_handler
+    </text>
+    <text x="20" y="135" font-family="Arial, sans-serif" font-size="12" fill="white">
+      method in order to be able to do something like
+    </text>
+    <text x="20" y="150" font-family="Arial, sans-serif" font-size="12" fill="white">
+      this@app.exception_handler(User...
+    </text>
+  </svg>
+
+  <!-- Close -->
+   <p>close</p>
+  <svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Card Background -->
+    <rect x="6" y="6" width="388" height="188" rx="15" ry="15" fill="#d4b06c" />
+    <rect x="10" y="10" width="380" height="180" rx="15" ry="15" fill="#545454" />
+    
+    
+    <!-- Title -->
+    <text x="20" y="40" font-family="Arial, sans-serif" font-size="20" fill="white">
+      bugfix: updated tutorial002...
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="20" y="65" font-family="Arial, sans-serif" font-size="14" fill="#d4b273">
+      最近の会話
+    </text>
+    
+    <!-- Body Text -->
+    <text x="20" y="90" font-family="Arial, sans-serif" font-size="12" fill="white">
+      I have this annoying situation where I have to
+    </text>
+    <text x="20" y="105" font-family="Arial, sans-serif" font-size="12" fill="white">
+      handle a lot of exceptions with the same handler.
+    </text>
+    <text x="20" y="120" font-family="Arial, sans-serif" font-size="12" fill="white">
+      added an extra argument in the exception_handler
+    </text>
+    <text x="20" y="135" font-family="Arial, sans-serif" font-size="12" fill="white">
+      method in order to be able to do something like
+    </text>
+    <text x="20" y="150" font-family="Arial, sans-serif" font-size="12" fill="white">
+      this@app.exception_handler(User...
+    </text>
+  </svg>
+  <p id="test"></p>
+  <script>
+    const svg_canvas = document.createElementNS("http://www.w3.org/2000/svg","svg");
+    svg_canvas.setAttribute("width","400");
+    svg_canvas.setAttribute("height","200");
+    
+    const oc_color = {
+        "open":"#617256",
+        "close":"#545454"
+    };
+
+    const svg_Title_base = [
+        ["font-family","Arial, sans-serif"], 
+        ["font-size","14"], 
+        ["fill","white"]
+    ];
+
+    
+
+    const svg_text_base = [
+        ["x","3"],
+        ["y","3"],
+        ["font-family","Arial, sans-serif"],
+        ["font-size","12"],
+        ["fill","white"]
+    ];
+
+    const flame = [
+
+    ]
+
+
+    function HTML_Attribute_json(target,jsons){
+
+        for(let x = 0;x<jsons.length;x++){
+            target.setAttribute(jsons[x][0],jsons[x][1]);
+            console.log(`${jsons[x][0]},${jsons[x][1]}`)
+        }
+
+    }
+    function NumberToString(n){
+        return Math.abs(n).toString();
+    }
+
+    function StringLen(text,max){
+        let Len = [];
+        for(let i = 0;i<text.length / parseInt(max);i++){
+            Len.push(text.substr(i * max,max));
+        }
+        return Len;
+    }
+
+    // 対象
+    
+/*
+    <rect x="6" y="6" width="388" height="188" rx="15" ry="15" fill="#d4b06c" />
+    <rect x="10" y="10" width="380" height="180" rx="15" ry="15" fill="#545454" />
+    */
+    function canvasBord(x,y,option){
+        var canvasBord_outline_temp = document.createElementNS('http://www.w3.org/2000/svg','rect');
+        var canvasBord_main_temp = document.createElementNS('http://www.w3.org/2000/svg','rect');
+        let canvasBase = [
+            ["x",x],
+            ["y",y],
+            ["width","388"], 
+            ["height","188"],
+            ["rx","15"],
+            ["ry","15"],
+            ["fill","#d4b06c"]
+        ]
+
+        HTML_Attribute_json(canvasBord_outline_temp,canvasBase);
+        canvasBase[0][1] = NumberToString(x + 4);
+        canvasBase[1][1] = NumberToString(y + 4);
+        canvasBase[2][1] = NumberToString(parseInt(canvasBase[2][1],10) - 8);
+        canvasBase[3][1] = NumberToString(parseInt(canvasBase[3][1],10) - 8);
+        canvasBase[6][1] = oc_color[option];
+
+        console.dir(canvasBase);
+        HTML_Attribute_json(canvasBord_main_temp,canvasBase);
+
+        svg_canvas.appendChild(canvasBord_outline_temp);
+        svg_canvas.appendChild(canvasBord_main_temp);
+    }
+
+    function TitleSetting(x,y,title_text){
+        let title_object = document.createElementNS('http://www.w3.org/2000/svg','text');
+        title_object.textContent = title_text;
+        HTML_Attribute_json(title_object,svg_Title_base);
+        title_object.setAttribute("x",NumberToString(16 + parseInt(x,10)));
+        title_object.setAttribute("y",NumberToString(34 + parseInt(y,10)));
+        
+        svg_canvas.appendChild(title_object);
+    }
+    function SubSetting(x,y){
+        let title_object = document.createElementNS('http://www.w3.org/2000/svg','text');
+        title_object.textContent = "最近の会話";
+        let svg_subText_base = [
+            ["x",NumberToString(parseInt(x,10) + 16)],
+            ["y",NumberToString(parseInt(y,10) + 59)],
+            ["font-family","Arial, sans-serif"],
+            ["font-size","14"],
+            ["fill","#d4b273"]
+        ];
+
+        console.dir(svg_subText_base);
+        HTML_Attribute_json(title_object,svg_subText_base);
+        svg_canvas.appendChild(title_object);
+    }
+    
+    // text x="20" y="90" font-family="Arial, sans-serif" font-size="12" fill="white"
+    // 一列 y +15 限度5行 ---  25文字/行
+
+
+// x="20" y="90" font-family="Arial, sans-serif" font-size="12" fill="white"
+    function TextContent(x,y,text){
+        
+        let text_size_max = 25;
+        let text_lines = StringLen(text,text_size_max);
+
+        let option_temp = svg_text_base;
+        console.log(`text_lines:${text_lines.length}`);
+        console.log(parseInt(text_lines.length,10));
+
+        for(let k = 0;k < parseInt(text_lines.length,10); k++){
+            console.log(text_lines.length,k);
+            var text_object = document.createElementNS('http://www.w3.org/2000/svg','text');
+            if(k > 5){
+                break;
+            }
+            option_temp[0][1] = NumberToString(16 + parseInt(k,10));
+            option_temp[1][1] = NumberToString(84 + parseInt(k,10) + 15 * k);
+            text_object.textContent = text_lines[k];
+            console.log(text_lines[k]);
+
+            HTML_Attribute_json(text_object,option_temp);
+            svg_canvas.appendChild(text_object);
+        }
+    }
+
+
+
+
+    function setBord(base_x,base_y){
+        canvasBord(base_x,base_y,"open");
+        SubSetting(base_x,base_y);
+        TitleSetting(base_x,base_y,"hello");
+        TextContent(base_x,base_y," Do you like **FastAPI**?    Would you like to help FastAPI, other users, and the author?    Or would you like to get help with **FastAPI**?    There are very simple ways to help (several involve just one or two clicks).    And there are several ways to get help too.    ## Subscribe to the newsletter    You can subscribe to the (infrequent) [**FastAPI and friends** newsletter](newsletter.md){.internal-link target=_blank} to stay updated about:    * News about FastAPI and friends 🚀  * Guides 📝  * Features ✨  * Breaking changes 🚨  * Tips and tricks ✅ ");
+        document.body.appendChild(svg_canvas);
+    }
+
+    setBord(3,2);
+  </script>
+</body>
+</html>
