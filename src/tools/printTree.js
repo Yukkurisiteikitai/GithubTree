@@ -2,26 +2,22 @@ const svg_canvas = document.createElementNS("http://www.w3.org/2000/svg","svg");
 svg_canvas.setAttribute("id", "drow");
 svg_canvas.setAttribute("width", "1500");
 svg_canvas.setAttribute("height", "900");
-// document.body.appendChild(svg_canvas);
-
-// console.log(svg_canvas.getBoundingClientRect().height);
-// console.log(svg_canvas.getBoundingClientRect().top);
-// const ctx = canvas.getContext('2d');
 
 //説明は src/thinks/printTreeREADME.md
 //propaty
 
+const canvasX_size = 1500;
+const canvasY_size = 900;
+
 let centerX = svg_canvas.width.animVal.valueAsString / 2;
 let centerY = svg_canvas.height.animVal.valueAsString / 2;
 
-svg_canvas.width = 1500;
+svg_canvas.width = canvasX_size;
 svg_canvas.height = 900;
 
 function centerReset(){
-    // centerX = svg_canvas.width.animVal.valueAsString / 2;
-    // centerY = svg_canvas.height.animVal.valueAsString / 2;
-    centerX = 1500 /2;
-    centerY = 900 /2;
+    centerX = canvasX_size /2;
+    centerY = canvasY_size /2;
     console.log(`centerReset\n X:${centerX}\nY:${centerY}`);
 }
 let TreeBow = []
@@ -286,6 +282,7 @@ treeManager = {
 //renders
 
 
+getRandomInt(0,10);
 
 function senterDrow(index){
     centerReset();
@@ -317,7 +314,7 @@ const setTree = () => {
 
 function RandomSetPM(mix,max){
     return (-1 + (getRandomInt(0, 2) * 2));
-} 
+}
 
 // svg_s = document.getElementById("drow");
 
@@ -328,8 +325,109 @@ let ste = []
 start_pos = [0,0]
 end_pos = [0,0]
 
+
+
+function setTreeSys(max, brake){
+    let temp_Branch = []
+    //+ -    RandomSetPM() * 
+    for(var t = 0;t<max;t++){
+        temp_Branch.push(t);
+    }
+}
+
+
 //ランダムにメインの枝に突き刺すところから変更させてたい
+
+/*
+
+tree を交互にに方向を決める
+
+
+方向
+右 OR 左
++ OR -
+
+基本的には伸びていくので
+yは+でok
+
+基本的にはyで上げていく
+
+
+*/
+
+image_tree = [
+    [0,4,1,4,1,3,5],
+    [0,2,5,7,2,5],
+    [2,4,7,2,9,1]
+]
+
+/**
+ * 角度と長さから座標を特定する
+ * @param {*} x0 原点のx座標
+ * @param {*} y0 原点のy座標
+ * @param {*} length 枝の長さ
+ * @param {*} angleDeg 角度
+ * @returns 
+ */
+function bowSetPoint(x0, y0,angleDeg,length){
+    // function polarToCartesian(x0, y0, length, angleDeg) {
+    let angleRad = (angleDeg * Math.PI) / 180; // 角度をラジアンに変換
+    let x = x0 + length * Math.cos(angleRad);
+    let y = y0 + length * Math.sin(angleRad);
+    return [ x, y ];
+    // }
+    
+    // // 例: (250,250) から長さ100、角度45度
+    // let { x, y } = polarToCartesian(250, 250, 100, 45);
+    // console.log(`座標: (${x}, ${y})`);
+    
+    // return [0,0]
+}
+
+function checkBlock(start_pos, end_pos) {
+    let temp_x = start_pos[0] - end_pos[0];
+    let temp_y = start_pos[1] - end_pos[1];
+    let addPoint = temp_y / temp_x; // 傾き (m)
+    let startAdd = start_pos[1] - (addPoint * start_pos[0]); // 切片 (b)
+    return {
+        "addPoint": addPoint,
+        "startAdd": startAdd,
+        "start": start_pos,
+        "end": end_pos
+    };
+}
+
+function isIntersect(line1, line2) {
+    let m1 = line1.addPoint;
+    let b1 = line1.startAdd;
+    let m2 = line2.addPoint;
+    let b2 = line2.startAdd;
+
+    // 平行（傾きが等しい）なら交差しない
+    if (m1 === m2) return false;
+
+    // 交点の x 座標を計算
+    let x = (b2 - b1) / (m1 - m2);
+    let y = m1 * x + b1;
+
+    // 交点が各線分の範囲内にあるかを確認
+    function isWithinBounds(point, start, end) {
+        return (
+            Math.min(start[0], end[0]) <= point[0] &&
+            point[0] <= Math.max(start[0], end[0]) &&
+            Math.min(start[1], end[1]) <= point[1] &&
+            point[1] <= Math.max(start[1], end[1])
+        );
+    }
+
+    let intersection = [x, y];
+    return isWithinBounds(intersection, line1.start, line1.end) &&
+           isWithinBounds(intersection, line2.start, line2.end);
+}
+
+
 function settingTree(count){
+    
     for(let i = 0; i < count; i++){
         var Branch_temp = document.createElementNS('http://www.w3.org/2000/svg','line');
         
@@ -345,7 +443,7 @@ function settingTree(count){
         console.dir(end_pos);
         console.log(`${centerX} + ${setTree()}, ${tree_high} - (${getRandomInt(0,10)} * 20)`);
         PullrequestManager[i]["end_pos"] = [end_pos[0],end_pos[1]];
-        
+        console.log( "これが絵でh；fいお絵ssl着オエd；jエアウィおd；j絵わ；おいfj:"+bowSetPoint(x0=start_pos[0],y0=start_pos[1],angleDeg=getRandomInt(10,100),length = 23));
 
         // console.log(`startPos:${start_pos[0]}\nend_Pos:${tree_high - (getRandomInt(0,10) * 20)}\n`);
         //             NaN          NaN           NaN                 ok                ok
@@ -361,6 +459,50 @@ function settingTree(count){
         Branch_temp.setAttribute('data-id',`${i}`);
 
         svg_canvas.appendChild(Branch_temp);
+    }
+        
+
+
+    /*
+    必要関数
+    bowSetPostion
+        角度,長さ
+        開始座標,終了座標を返す
+    
+    */
+    
+    /*
+
+    視点をランダムに補正として初期値に追加する
+    
+    Start_pos = [centerX,centerY + getRandomint(1,20)];
+    end_pos = [centerX + getRandom(20,41) * RandomSetPM(), centerY + getRandomint(1,20)];
+
+    まず分岐をする
+    2つ右と左に角度を指定して
+    適当に長さを指定して
+    直線を設置する
+    ２つの直線をランダムに指定する
+    
+    長さと角度をランダム値を補正として追加する
+
+    */
+    Start_pos = [centerX,centerY + getRandomInt(1,20)];
+    end_pos = [centerX + getRandomInt(20,41) * RandomSetPM(), centerY + getRandomInt(1,20)];
+    let now_rot = 0 // 0 が左 1が 右
+
+    //反転
+    now_rot = now_rot + (now_rot * -1);
+
+    //角度(↑を角度の中心として認識する)
+    let SetTree_angle = 0; 
+    //長さ
+    let logget = 0;
+    
+    //Block上にいるかどうかを確認する//1500*900のリストに座標で1があるかどうかを先にチェックするみたいな仕組みにすればいける?
+    //もし重なりそうになったらそれを重ならないようにずらしたやつにずらす方向にランダムに補正を加えるを(チェック)にとおるまで繰り返す
+    if (checkBlock != 1){
+        getRandomInt()
     }
 
     console.log(`PullRequestManager`);
@@ -384,6 +526,40 @@ function settingLeef(count,leef_range){
 }
 
 
+function toolRender(cV){
+    var Branch_temp = document.createElementNS('http://www.w3.org/2000/svg','line');
+    let cut = parseInt(cV,10);
+    let color = "black";
+    
+
+
+    for(let x = 0;x < canvasX_size / cut; x++){
+        Branch_temp = document.createElementNS('http://www.w3.org/2000/svg','line');
+        Branch_temp.setAttribute('x1',x * cut);
+        Branch_temp.setAttribute('y1',0);
+        Branch_temp.setAttribute('x2',x * cut);
+        Branch_temp.setAttribute('y2',canvasY_size);
+        Branch_temp.setAttribute('stroke',color);
+        Branch_temp.setAttribute('stroke-width',1);
+        Branch_temp.setAttribute('data-id',`helloWorld${x}`);
+
+        svg_canvas.appendChild(Branch_temp);
+        console.log(`x:${x}\nw${canvasX_size / cut}`);
+    }
+    for(let y = 0;y < canvasY_size / cut; y++){
+        Branch_temp = document.createElementNS('http://www.w3.org/2000/svg','line');
+        Branch_temp.setAttribute('x1',0);
+        Branch_temp.setAttribute('y1',y * cut);
+        Branch_temp.setAttribute('x2',canvasX_size);
+        Branch_temp.setAttribute('y2',y * cut);
+        Branch_temp.setAttribute('stroke',color);
+        Branch_temp.setAttribute('stroke-width',1);
+        Branch_temp.setAttribute('data-id',`helloWorld${y}`);
+        svg_canvas.appendChild(Branch_temp);
+        console.log(`y:${y}\nw${canvasY_size / cut}`);
+    }
+}
+
 
 /* sennter
 tree
@@ -393,6 +569,7 @@ tree
 /* 
 枝の先から特定の長さの場所まで葉っぱをつける
 枝に対してBranch情報を入力する
+
 
 */
 
@@ -407,10 +584,10 @@ window.addEventListener('DOMContentLoaded', ()=> {
     //GET Date    
     const SettingTrees = Object.keys(PullrequestManager).length
     console.log(`SettingTree:${SettingTrees}`);
-
+    toolRender(10);
     // senterDrow(treeManager["main"]["commit"]);
     settingTree(SettingTrees);
-    settingLeef(SettingTrees,treeManager["main"]["commit"]/100000);
+    // settingLeef(SettingTrees,treeManager["main"]["commit"]/100000);
     // window.location.reload();//遊び
     document.body.appendChild(svg_canvas);
 });
