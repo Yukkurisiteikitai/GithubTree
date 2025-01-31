@@ -66,15 +66,17 @@ function settingTree(count){
         
         // 高さを設定
         tree_high = getRandomInt(tree_mix_high, tree_max_high);
-        
+        tree_length = getRandomInt(10,30);
+
         
         start_pos = [centerX + (RandomSetPM() * 10) * 3, tree_high];
-        console.dir(start_pos);
-        console.log(`${centerX} + ${(RandomSetPM() * 10)} * 3, ${tree_high}`);
-
         end_pos = [centerX + setTree(), tree_high - (getRandomInt(0,10) * 20)];
-        console.dir(end_pos);
-        console.log(`${centerX} + ${setTree()}, ${tree_high} - (${getRandomInt(0,10)} * 20)`);
+
+        
+        // console.dir(start_pos);
+        // console.log(`${centerX} + ${(RandomSetPM() * 10)} * 3, ${tree_high}`);
+        // console.dir(end_pos);
+        // console.log(`${centerX} + ${setTree()}, ${tree_high} - (${getRandomInt(0,10)} * 20)`);
         PullrequestManager[i]["end_pos"] = [end_pos[0],end_pos[1]];
 
 

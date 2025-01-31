@@ -15,3 +15,24 @@ pullRequestは枝
 
 
 }
+
+
+必要関数
+    bowSetPostion
+        角度,長さ
+        開始座標,終了座標を返す
+    */
+
+    /*
+    視点をランダムに補正として初期値に追加する
+    
+    Start_pos = [centerX,centerY + getRandomint(1,20)];
+    end_pos = [centerX + getRandom(20,41) * RandomSetPM(), centerY + getRandomint(1,20)];
+
+    まず分岐をする
+    2つ右と左に角度を指定して
+    適当に長さを指定して
+    直線を設置する
+    ２つの直線をランダムに指定する
+    
+    長さと角度をランダム値を補正として追加する
