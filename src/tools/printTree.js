@@ -461,6 +461,7 @@ function settingTree(count, spilte) {
      */
     let tree_pos = [[9, 3, 0]]
     let tempCheckTreePos = [[0,2],[2,3]]
+    
 
     function AddSetting() {
         // console.log(`isIntersect(line1 = checkBlock[${start_pos[0]}, ${start_pos[0]}], line2 = checkBlock${[end_pos[0], end_pos[1]]})`)
@@ -552,12 +553,7 @@ function settingTree(count, spilte) {
         countID += 1;
 
         svg_canvas.appendChild(Branch_temp)
-
     }
-
-
-
-
 
 
     //Block上にいるかどうかを確認する//1500*900のリストに座標で1があるかどうかを先にチェックするみたいな仕組みにすればいける?
